@@ -1,30 +1,22 @@
-language: nix
+language: c
 sudo: true
 matrix:
   include:
+  - os: linux
   - os: osx
     osx_image: xcode7.3
   - os: osx
     osx_image: xcode8
   - os: osx
     osx_image: xcode6.4
-env:
-- NIX_PATH=nixpkgs=https://github.com/NixOS/nixpkgs/archive/addcb0dddf2b7db505dae5c38fceb691c7ed85f9.tar.gz
-cache:
-  directories:
-  - "foo"
 
-before_install:
-# Fix https://github.com/NixOS/nix/issues/921#issuecomment-277612795
-- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then nix-env -i /nix/store/4cg1w19mi1qb41f7l7y1w4h2ld21a2ym-nix-1.11.7; fi
-- if [[ "$TRAVIS_OS_NAME" == "darwin" ]]; then nix-env -i /nix/store/xr46xg3gm7b2p21xkv26chk3wzrlfb1f-nix-1.11.7; fi
-- export NIX_SSL_CERT_FILE="$SSL_CERT_FILE"
-- unset SSL_CERT_FILE
+install:
+  - curl https://static.domenkozar.com/install-nix-1.11.13 | sh
+
 script:
 - nix-env --version
 - nix-env -i xz
 - mkdir -p foo/boo
 - touch foo/bar
-- git clone https://github.com/NixOS/nix
 - nix-env -i git
 - git clone https://github.com/NixOS/nix nix2
