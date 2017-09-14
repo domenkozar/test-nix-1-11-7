@@ -14,9 +14,10 @@ install:
   - sh ./install-nix.sh
 
 script:
+- source ~/.nix-profile/etc/profile.d/nix.sh
 - nix-env --version
 - nix-env -i xz
-- mkdir -p foo/boo
-- touch foo/bar
 - nix-env -i git
+- git --version
+- which git
 - git clone https://github.com/NixOS/nix nix2
