@@ -11,7 +11,7 @@ matrix:
     osx_image: xcode6.4
 
 install:
-  - curl https://static.domenkozar.com/install-nix-1.11.13 | sh
+  - sh ./install-nix.sh
 
 script:
 - nix-env --version
