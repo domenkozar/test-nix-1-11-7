@@ -23,9 +23,8 @@ require_util() {
 }
 
 case "$(uname -s).$(uname -m)" in
-    Linux.x86_64) system=x86_64-linux; hash=a05643e3738776d004eb44268f820332b975109b8401fd369652739ed503a88d;;
-    Linux.i?86) system=i686-linux; hash=ebeec1e79b83e83d8566f79dd4002e6520aba96be681ddd1094791fdea0c4e2b;;
-    Darwin.x86_64) system=x86_64-darwin; hash=1bbf5940ea3ce04f44004ad0e734fa2f1f52b034301d6ea0c7b33cbb7ad36f0a;;
+    Linux.x86_64) system=x86_64-linux; hash=5dd0ee58a816c958466a461f25e56dccfbf1b55edd1bcbca7a3aee21e5fa5169;;
+    Darwin.x86_64) system=x86_64-darwin; hash=d2414c6142f1162cc8b1c02bedcbff4c70142618301a643ddaa76e8991f915ed;;
     *) oops "sorry, there is no binary distribution of Nix for your platform";;
 esac
 
