@@ -14,7 +14,7 @@ install:
   - sh ./install-nix.sh
 
 script:
-- source ~/.nix-profile/etc/profile.d/nix.sh
+- source ~/.nix-profile/etc/profile.d/nix.sh || source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
 - nix-env --version
 - nix-env -i xz
 - nix-env -i git
